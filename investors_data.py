@@ -36,5 +36,6 @@ def get_investors():
 	connected.to_excel('timur_first_con.xlsx')
 	connected = connected.groupby(['Gender', 'DescriptionText', 'Article'], as_index = False).sum()
 	connected.to_excel('timur_first_con_no_dup.xlsx')
+	return connected
 
-get_investors()
+# get_investors()
