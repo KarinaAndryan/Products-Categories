@@ -32,7 +32,14 @@ def get_investors():
 	first_lot['Article'] = columns
 	first_lot.to_excel('test_first.xlsx')
 
+	first_lot_2 = pd.read_excel('src/1_лот_2.xlsx')
+	first_lot_2 = first_lot_2[['Gender', 'DescriptionText', 'Артикул', 'STOCK SALE']]
+	first_lot_2 = first_lot_2.rename(columns = {'STOCK SALE' : 'TAS', 'Артикул' : 'Article'})
+	columns = first_lot_2['DescriptionText'].apply(crop_description)
+	first_lot_2['DescriptionText'] = columns
+
 	connected = pd.concat([first_lot, timur])
+	connected = pd.concat([connected, first_lot_2])
 	connected.to_excel('timur_first_con.xlsx')
 	connected = connected.groupby(['Gender', 'DescriptionText', 'Article'], as_index = False).sum()
 	connected.to_excel('timur_first_con_no_dup.xlsx')

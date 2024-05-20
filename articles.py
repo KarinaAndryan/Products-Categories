@@ -6,7 +6,7 @@ def get_statistics():
 
 	# later read from file this data
 	print("Enter data in format YYYY-MM-DD hh:mm:ss YYYY-MM-DD hh:mm:ss")
-	# 2023-09-01 00:00:00 2024-04-15 23:59:59
+	# 2023-09-01 00:00:00 2024-04-16 23:59:59
 	date = input().split()
 	params = {"period": {
 				"begin": date[0] + " " + date[1],
